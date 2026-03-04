@@ -16,6 +16,10 @@ namespace ConversorDeMoneda
         CN_TasaCambio objetoCN = new CN_TasaCambio();
         private string TasaID = null;
         private bool Editar = false;
+        private const int MENU_COLAPSADO = 60;
+        private const int MENU_EXPANDIDO = 200;
+        private const int VELOCIDAD_ANIM = 30;
+        private bool menuExpandiendo = false;
 
         public Form1()
         {
@@ -24,7 +28,8 @@ namespace ConversorDeMoneda
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MostrarTasaCambio();
+            panel1.Width = MENU_COLAPSADO;
+           //MostrarTasaCambio();
 
         }
         //Mostrar Tasa
@@ -102,6 +107,65 @@ namespace ConversorDeMoneda
             }
             else
                 MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseEnter(object sender, EventArgs e)
+        {
+            menuExpandiendo = true; 
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            if (!panel1.ClientRectangle.Contains(
+                panel1.PointToClient(Cursor.Position)))
+            {
+                menuExpandiendo = false;
+                timer2.Start();
+            } 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (menuExpandiendo)
+            {
+                if (panel1.Width < MENU_EXPANDIDO)
+                    panel1.Width = Math.Min(panel1.Width + VELOCIDAD_ANIM, MENU_EXPANDIDO);
+                else
+                    timer2.Stop();
+
+            }
+            else
+            {
+                if (panel1.Width > MENU_COLAPSADO)
+                    panel1.Width = Math.Max(panel1.Width - VELOCIDAD_ANIM, MENU_COLAPSADO);
+                else
+                    timer2.Stop();
+            }
+        }
+
+        private void btnINICIO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUSUARIO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTASACAMBIO_Click(object sender, EventArgs e)
+        {
+            MostrarTasaCambio();
+        }
+
+        private void btnREGISTRO_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }// huepa

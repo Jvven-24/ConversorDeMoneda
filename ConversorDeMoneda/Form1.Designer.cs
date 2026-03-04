@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.txtMoneda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,13 +37,22 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnINICIO = new System.Windows.Forms.Button();
+            this.btnUSUARIO = new System.Windows.Forms.Button();
+            this.btnTASACAMBIO = new System.Windows.Forms.Button();
+            this.btnREGISTRO = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(67, 48);
+            this.dataGridView2.Location = new System.Drawing.Point(221, 40);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(586, 269);
             this.dataGridView2.TabIndex = 0;
@@ -91,7 +101,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(124, 340);
+            this.btnEditar.Location = new System.Drawing.Point(237, 339);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(117, 42);
             this.btnEditar.TabIndex = 6;
@@ -101,7 +111,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(438, 341);
+            this.btnEliminar.Location = new System.Drawing.Point(676, 340);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 41);
             this.btnEliminar.TabIndex = 7;
@@ -109,9 +119,75 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.btnREGISTRO);
+            this.panel1.Controls.Add(this.btnTASACAMBIO);
+            this.panel1.Controls.Add(this.btnUSUARIO);
+            this.panel1.Controls.Add(this.btnINICIO);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 531);
+            this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 15;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // btnINICIO
+            // 
+            this.btnINICIO.Location = new System.Drawing.Point(54, 65);
+            this.btnINICIO.Name = "btnINICIO";
+            this.btnINICIO.Size = new System.Drawing.Size(101, 65);
+            this.btnINICIO.TabIndex = 0;
+            this.btnINICIO.Text = "INICIO";
+            this.btnINICIO.UseVisualStyleBackColor = true;
+            this.btnINICIO.Click += new System.EventHandler(this.btnINICIO_Click);
+            // 
+            // btnUSUARIO
+            // 
+            this.btnUSUARIO.Location = new System.Drawing.Point(54, 181);
+            this.btnUSUARIO.Name = "btnUSUARIO";
+            this.btnUSUARIO.Size = new System.Drawing.Size(101, 64);
+            this.btnUSUARIO.TabIndex = 9;
+            this.btnUSUARIO.Text = "USUARIO";
+            this.btnUSUARIO.UseVisualStyleBackColor = true;
+            this.btnUSUARIO.Click += new System.EventHandler(this.btnUSUARIO_Click);
+            // 
+            // btnTASACAMBIO
+            // 
+            this.btnTASACAMBIO.Location = new System.Drawing.Point(54, 291);
+            this.btnTASACAMBIO.Name = "btnTASACAMBIO";
+            this.btnTASACAMBIO.Size = new System.Drawing.Size(101, 64);
+            this.btnTASACAMBIO.TabIndex = 10;
+            this.btnTASACAMBIO.Text = "TASA DE CAMBIO";
+            this.btnTASACAMBIO.UseVisualStyleBackColor = true;
+            this.btnTASACAMBIO.Click += new System.EventHandler(this.btnTASACAMBIO_Click);
+            // 
+            // btnREGISTRO
+            // 
+            this.btnREGISTRO.Location = new System.Drawing.Point(54, 413);
+            this.btnREGISTRO.Name = "btnREGISTRO";
+            this.btnREGISTRO.Size = new System.Drawing.Size(101, 64);
+            this.btnREGISTRO.TabIndex = 11;
+            this.btnREGISTRO.Text = "REGISTRO";
+            this.btnREGISTRO.UseVisualStyleBackColor = true;
+            this.btnREGISTRO.Click += new System.EventHandler(this.btnREGISTRO_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1115, 542);
+            this.ClientSize = new System.Drawing.Size(1161, 531);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
@@ -123,6 +199,7 @@
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +216,13 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timer1;
+       private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button btnREGISTRO;
+        private System.Windows.Forms.Button btnTASACAMBIO;
+        private System.Windows.Forms.Button btnUSUARIO;
+        private System.Windows.Forms.Button btnINICIO;
     }
 }
 
