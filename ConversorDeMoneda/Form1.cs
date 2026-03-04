@@ -116,7 +116,8 @@ namespace ConversorDeMoneda
 
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
-            menuExpandiendo = true; 
+            menuExpandiendo = true;
+            timer2.Start();
         }
 
         private void panel1_MouseLeave(object sender, EventArgs e)

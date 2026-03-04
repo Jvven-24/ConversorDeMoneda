@@ -146,43 +146,55 @@
             // 
             // btnINICIO
             // 
-            this.btnINICIO.Location = new System.Drawing.Point(54, 65);
+            this.btnINICIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnINICIO.Location = new System.Drawing.Point(0, 0);
             this.btnINICIO.Name = "btnINICIO";
-            this.btnINICIO.Size = new System.Drawing.Size(101, 65);
+            this.btnINICIO.Size = new System.Drawing.Size(200, 65);
             this.btnINICIO.TabIndex = 0;
             this.btnINICIO.Text = "INICIO";
             this.btnINICIO.UseVisualStyleBackColor = true;
             this.btnINICIO.Click += new System.EventHandler(this.btnINICIO_Click);
+            this.btnINICIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnINICIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnUSUARIO
             // 
-            this.btnUSUARIO.Location = new System.Drawing.Point(54, 181);
+            this.btnUSUARIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUSUARIO.Location = new System.Drawing.Point(0, 65);
             this.btnUSUARIO.Name = "btnUSUARIO";
-            this.btnUSUARIO.Size = new System.Drawing.Size(101, 64);
+            this.btnUSUARIO.Size = new System.Drawing.Size(200, 64);
             this.btnUSUARIO.TabIndex = 9;
             this.btnUSUARIO.Text = "USUARIO";
             this.btnUSUARIO.UseVisualStyleBackColor = true;
             this.btnUSUARIO.Click += new System.EventHandler(this.btnUSUARIO_Click);
+            this.btnUSUARIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnUSUARIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnTASACAMBIO
             // 
-            this.btnTASACAMBIO.Location = new System.Drawing.Point(54, 291);
+            this.btnTASACAMBIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 129);
             this.btnTASACAMBIO.Name = "btnTASACAMBIO";
-            this.btnTASACAMBIO.Size = new System.Drawing.Size(101, 64);
+            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 64);
             this.btnTASACAMBIO.TabIndex = 10;
             this.btnTASACAMBIO.Text = "TASA DE CAMBIO";
             this.btnTASACAMBIO.UseVisualStyleBackColor = true;
             this.btnTASACAMBIO.Click += new System.EventHandler(this.btnTASACAMBIO_Click);
+            this.btnTASACAMBIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnTASACAMBIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnREGISTRO
             // 
-            this.btnREGISTRO.Location = new System.Drawing.Point(54, 413);
+            this.btnREGISTRO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnREGISTRO.Location = new System.Drawing.Point(0, 193);
             this.btnREGISTRO.Name = "btnREGISTRO";
-            this.btnREGISTRO.Size = new System.Drawing.Size(101, 64);
+            this.btnREGISTRO.Size = new System.Drawing.Size(200, 64);
             this.btnREGISTRO.TabIndex = 11;
             this.btnREGISTRO.Text = "REGISTRO";
             this.btnREGISTRO.UseVisualStyleBackColor = true;
             this.btnREGISTRO.Click += new System.EventHandler(this.btnREGISTRO_Click);
+            this.btnREGISTRO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnREGISTRO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // Form1
             // 
