@@ -18,6 +18,14 @@ namespace CapaNegocio
             DataTable tablaUsuario = new DataTable();
             tablaUsuario = objetoCD.Mostrar();
             return tablaUsuario;
+    
         }
+
+        public void InsertarUsuario( string UsuarioNombre, string Contrasena)
+        {
+            objetoCD.Insertar(UsuarioNombre, Contrasena);
+        }
+
     }
+
 }

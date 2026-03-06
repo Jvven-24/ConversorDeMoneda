@@ -14,11 +14,9 @@ namespace CapaDatos
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-    
-    
 
-    public DataTable Mostrar()
-    {    
+        public DataTable Mostrar()
+        {
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = "MostrarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -26,6 +24,18 @@ namespace CapaDatos
             tabla.Load(leer);
             conexion.CerrarConexion();
             return tabla;
-        
+        }
+        public void Insertar(string UsuarioNombre, string Contrasena)
+        {
+            comando.Connection = conexion.ObtenerConexion();
+            comando.CommandText = "'Juaka', 1234";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@UsuarioNombre", UsuarioNombre);
+            comando.Parameters.AddWithValue("@Contrasena", Contrasena);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+        }
     }
 }
