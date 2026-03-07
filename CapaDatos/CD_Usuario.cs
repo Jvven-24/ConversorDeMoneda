@@ -8,22 +8,12 @@ using System.Data;
 
 namespace CapaDatos
 {
-    public class CD_Usuario
+    public class CD_Usuario : CD_Base
     {
-        private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader leer;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
-
-        public DataTable Mostrar()
+        
+        public override DataTable Mostrar()
         {
-            comando.Connection = conexion.ObtenerConexion();
-            comando.CommandText = "MostrarUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
+            return EjecutarMostrar("MostrarUsuario");  
         }
         public void Insertar(string UsuarioNombre, string Contrasena)
         {
@@ -36,6 +26,27 @@ namespace CapaDatos
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
+    
+        }
+        public virtual void Editar(string UsuarioNombre, string Contrasena, int UsuarioID)
+        {
+            comando.Connection = conexion.ObtenerConexion();
+            comando.CommandText = "EditarUsuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@UsuarioNombre", UsuarioNombre);
+            comando.Parameters.AddWithValue("@Contrasena", Contrasena);
+            comando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
+
+            comando.ExecuteNonQuery();
+            LimpiarCeldas();
+
+        }
+
+        public override void Eliminar(string storedProcedure, string parametro, int UsuarioID)
+        {
+            base.Eliminar("EliminarUsuario", "@UsuarioID", UsuarioID);
         }
     }
+
+
 }

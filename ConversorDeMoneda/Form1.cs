@@ -29,14 +29,36 @@ namespace ConversorDeMoneda
         private void Form1_Load(object sender, EventArgs e)
         {
             panel1.Width = MENU_COLAPSADO;
-           //MostrarTasaCambio();
+            btnEditar.Visible = false;
+            btnGuardar.Visible = false;
+            btnEliminar.Visible = false;
 
+
+            label1.Visible = false;
+            label2.Visible = false;
+            txtMoneda.Visible = false;
+            txtTasaDeCambio.Visible = false;    
+            
+        }
+
+        private void Botones()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = true;
+            btnEliminar.Visible = true;
+
+
+            label1.Visible = true;
+            label2.Visible = true;
+            txtMoneda.Visible = true;
+            txtTasaDeCambio.Visible = true;
         }
         //Mostrar Tasa
         private void MostrarTasaCambio()
         {
             CN_TasaCambio objeto = new CN_TasaCambio(); // Se utiliza para actualizar la vista de la tabla 
             dataGridView2.DataSource = objeto.MostrarTasa();
+            Botones();
          
         }
 

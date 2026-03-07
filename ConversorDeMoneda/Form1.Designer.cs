@@ -38,12 +38,12 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnREGISTRO = new System.Windows.Forms.Button();
+            this.btnTASACAMBIO = new System.Windows.Forms.Button();
+            this.btnUSUARIO = new System.Windows.Forms.Button();
+            this.btnINICIO = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnINICIO = new System.Windows.Forms.Button();
-            this.btnUSUARIO = new System.Windows.Forms.Button();
-            this.btnTASACAMBIO = new System.Windows.Forms.Button();
-            this.btnREGISTRO = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(221, 40);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(586, 269);
+            this.dataGridView2.Size = new System.Drawing.Size(586, 293);
             this.dataGridView2.TabIndex = 0;
             // 
             // txtMoneda
@@ -135,40 +135,18 @@
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
-            // timer1
+            // btnREGISTRO
             // 
-            this.timer1.Interval = 15;
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 15;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnINICIO
-            // 
-            this.btnINICIO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnINICIO.Location = new System.Drawing.Point(0, 0);
-            this.btnINICIO.Name = "btnINICIO";
-            this.btnINICIO.Size = new System.Drawing.Size(200, 65);
-            this.btnINICIO.TabIndex = 0;
-            this.btnINICIO.Text = "INICIO";
-            this.btnINICIO.UseVisualStyleBackColor = true;
-            this.btnINICIO.Click += new System.EventHandler(this.btnINICIO_Click);
-            this.btnINICIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            this.btnINICIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
-            // 
-            // btnUSUARIO
-            // 
-            this.btnUSUARIO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUSUARIO.Location = new System.Drawing.Point(0, 65);
-            this.btnUSUARIO.Name = "btnUSUARIO";
-            this.btnUSUARIO.Size = new System.Drawing.Size(200, 64);
-            this.btnUSUARIO.TabIndex = 9;
-            this.btnUSUARIO.Text = "USUARIO";
-            this.btnUSUARIO.UseVisualStyleBackColor = true;
-            this.btnUSUARIO.Click += new System.EventHandler(this.btnUSUARIO_Click);
-            this.btnUSUARIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            this.btnUSUARIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            this.btnREGISTRO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnREGISTRO.Location = new System.Drawing.Point(0, 193);
+            this.btnREGISTRO.Name = "btnREGISTRO";
+            this.btnREGISTRO.Size = new System.Drawing.Size(200, 64);
+            this.btnREGISTRO.TabIndex = 11;
+            this.btnREGISTRO.Text = "REGISTRO";
+            this.btnREGISTRO.UseVisualStyleBackColor = true;
+            this.btnREGISTRO.Click += new System.EventHandler(this.btnREGISTRO_Click);
+            this.btnREGISTRO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnREGISTRO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnTASACAMBIO
             // 
@@ -183,18 +161,40 @@
             this.btnTASACAMBIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.btnTASACAMBIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
-            // btnREGISTRO
+            // btnUSUARIO
             // 
-            this.btnREGISTRO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnREGISTRO.Location = new System.Drawing.Point(0, 193);
-            this.btnREGISTRO.Name = "btnREGISTRO";
-            this.btnREGISTRO.Size = new System.Drawing.Size(200, 64);
-            this.btnREGISTRO.TabIndex = 11;
-            this.btnREGISTRO.Text = "REGISTRO";
-            this.btnREGISTRO.UseVisualStyleBackColor = true;
-            this.btnREGISTRO.Click += new System.EventHandler(this.btnREGISTRO_Click);
-            this.btnREGISTRO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            this.btnREGISTRO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            this.btnUSUARIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUSUARIO.Location = new System.Drawing.Point(0, 65);
+            this.btnUSUARIO.Name = "btnUSUARIO";
+            this.btnUSUARIO.Size = new System.Drawing.Size(200, 64);
+            this.btnUSUARIO.TabIndex = 9;
+            this.btnUSUARIO.Text = "USUARIO";
+            this.btnUSUARIO.UseVisualStyleBackColor = true;
+            this.btnUSUARIO.Click += new System.EventHandler(this.btnUSUARIO_Click);
+            this.btnUSUARIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnUSUARIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // btnINICIO
+            // 
+            this.btnINICIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnINICIO.Location = new System.Drawing.Point(0, 0);
+            this.btnINICIO.Name = "btnINICIO";
+            this.btnINICIO.Size = new System.Drawing.Size(200, 65);
+            this.btnINICIO.TabIndex = 0;
+            this.btnINICIO.Text = "INICIO";
+            this.btnINICIO.UseVisualStyleBackColor = true;
+            this.btnINICIO.Click += new System.EventHandler(this.btnINICIO_Click);
+            this.btnINICIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.btnINICIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 15;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Form1
             // 

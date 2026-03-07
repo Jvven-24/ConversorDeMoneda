@@ -9,28 +9,16 @@ using System.Data;
 
 namespace CapaDatos
 {
-    public class CD_TasaCambio
+    public class CD_TasaCambio : CD_Base
     {
-        private CD_Conexion conexion = new CD_Conexion();
-
-        SqlDataReader leer;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
-
-        public DataTable Mostrar()
+       
+        public override  DataTable Mostrar()
         {
-           
-            comando.Connection = conexion.ObtenerConexion();
-            comando.CommandText = "MostrarTasaCambio";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
-
-
+            return EjecutarMostrar("MostrarTasaCambio");
+          
         }
-        public void Insertar(string MonedaNombre, double ValorTasa)
+
+        public virtual void Insertar(string MonedaNombre, double ValorTasa)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.ObtenerConexion();
@@ -40,11 +28,11 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@ValorTasa",ValorTasa);
             
             comando.ExecuteNonQuery();
+            LimpiarCeldas();
             
-            comando.Parameters.Clear();
 
         }
-        public void Editar(string MonedaNombre, double ValorTasa, int TasaID)
+        public virtual void Editar(string MonedaNombre, double ValorTasa, int TasaID)
         {
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = "EditarTasa";
@@ -54,20 +42,13 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@TasaID", TasaID);
            
             comando.ExecuteNonQuery();
-            
-            comando.Parameters.Clear();
-
+            LimpiarCeldas(); 
+          
         }
 
-        public void Eliminar(int TasaID)
+        public void Eliminar(int TasaID )
         {
-            comando.Connection = conexion.ObtenerConexion();
-            comando.CommandText = "EliminarTasa";
-            comando.CommandType = CommandType.StoredProcedure;
-
-            comando.Parameters.AddWithValue("TasaID", TasaID);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            Eliminar("EliminarTasa", "@TasaID", TasaID);
         }
     }
 }
