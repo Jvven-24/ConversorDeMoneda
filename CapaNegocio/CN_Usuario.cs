@@ -25,14 +25,14 @@ namespace CapaNegocio
         {
             objetoCD.Insertar(UsuarioNombre, Contrasena);
         }
-        public void EditarTasaCambio(string UsuarioNombre, string Contrasena, string UsuarioID)
+        public void EditarUsuario(string UsuarioNombre, string Contrasena, string UsuarioID)
         {
             objetoCD.Editar(UsuarioNombre, Contrasena, Convert.ToInt32(UsuarioID));
         }
 
-        public void EliminarTasa(string storedProcedure, string parametro, int TasaID)
+        public void EliminarUsuario(int TasaID)
         {
-            objetoCD.Eliminar(storedProcedure, parametro, Convert.ToInt32(TasaID));
+            objetoCD.Eliminar(Convert.ToInt32(TasaID));
         }
     }
 

@@ -42,7 +42,7 @@ namespace CapaDatos
 
         }
 
-        public override void Eliminar(string storedProcedure, string parametro, int UsuarioID)
+        public void Eliminar(int UsuarioID)
         {
             base.Eliminar("EliminarUsuario", "@UsuarioID", UsuarioID);
         }
