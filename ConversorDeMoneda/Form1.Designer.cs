@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.txtMoneda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,8 +52,29 @@
             // 
             // dataGridView2
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(36)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.dataGridView2.Location = new System.Drawing.Point(221, 40);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(586, 293);
@@ -67,18 +90,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(244)))));
             this.label1.Location = new System.Drawing.Point(851, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(51, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Moneda:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(244)))));
             this.label2.Location = new System.Drawing.Point(813, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(89, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tasa de Cambio:";
             // 
@@ -91,12 +118,14 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Location = new System.Drawing.Point(841, 245);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(244, 41);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEditar
@@ -121,12 +150,13 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(36)))));
             this.panel1.Controls.Add(this.btnREGISTRO);
             this.panel1.Controls.Add(this.btnTASACAMBIO);
             this.panel1.Controls.Add(this.btnUSUARIO);
             this.panel1.Controls.Add(this.btnINICIO);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 531);
@@ -137,52 +167,68 @@
             // 
             // btnREGISTRO
             // 
+            this.btnREGISTRO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
             this.btnREGISTRO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnREGISTRO.Location = new System.Drawing.Point(0, 193);
+            this.btnREGISTRO.FlatAppearance.BorderSize = 0;
+            this.btnREGISTRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnREGISTRO.ForeColor = System.Drawing.Color.White;
+            this.btnREGISTRO.Location = new System.Drawing.Point(0, 403);
             this.btnREGISTRO.Name = "btnREGISTRO";
-            this.btnREGISTRO.Size = new System.Drawing.Size(200, 64);
+            this.btnREGISTRO.Size = new System.Drawing.Size(200, 134);
             this.btnREGISTRO.TabIndex = 11;
             this.btnREGISTRO.Text = "REGISTRO";
-            this.btnREGISTRO.UseVisualStyleBackColor = true;
+            this.btnREGISTRO.UseVisualStyleBackColor = false;
             this.btnREGISTRO.Click += new System.EventHandler(this.btnREGISTRO_Click);
             this.btnREGISTRO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.btnREGISTRO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnTASACAMBIO
             // 
+            this.btnTASACAMBIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
             this.btnTASACAMBIO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 129);
+            this.btnTASACAMBIO.FlatAppearance.BorderSize = 0;
+            this.btnTASACAMBIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTASACAMBIO.ForeColor = System.Drawing.Color.White;
+            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 269);
             this.btnTASACAMBIO.Name = "btnTASACAMBIO";
-            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 64);
+            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 134);
             this.btnTASACAMBIO.TabIndex = 10;
             this.btnTASACAMBIO.Text = "TASA DE CAMBIO";
-            this.btnTASACAMBIO.UseVisualStyleBackColor = true;
+            this.btnTASACAMBIO.UseVisualStyleBackColor = false;
             this.btnTASACAMBIO.Click += new System.EventHandler(this.btnTASACAMBIO_Click);
             this.btnTASACAMBIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.btnTASACAMBIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnUSUARIO
             // 
+            this.btnUSUARIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
             this.btnUSUARIO.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUSUARIO.Location = new System.Drawing.Point(0, 65);
+            this.btnUSUARIO.FlatAppearance.BorderSize = 0;
+            this.btnUSUARIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUSUARIO.ForeColor = System.Drawing.Color.White;
+            this.btnUSUARIO.Location = new System.Drawing.Point(0, 135);
             this.btnUSUARIO.Name = "btnUSUARIO";
-            this.btnUSUARIO.Size = new System.Drawing.Size(200, 64);
+            this.btnUSUARIO.Size = new System.Drawing.Size(200, 134);
             this.btnUSUARIO.TabIndex = 9;
             this.btnUSUARIO.Text = "USUARIO";
-            this.btnUSUARIO.UseVisualStyleBackColor = true;
+            this.btnUSUARIO.UseVisualStyleBackColor = false;
             this.btnUSUARIO.Click += new System.EventHandler(this.btnUSUARIO_Click);
             this.btnUSUARIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.btnUSUARIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // btnINICIO
             // 
+            this.btnINICIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
             this.btnINICIO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnINICIO.FlatAppearance.BorderSize = 0;
+            this.btnINICIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnINICIO.ForeColor = System.Drawing.Color.White;
             this.btnINICIO.Location = new System.Drawing.Point(0, 0);
             this.btnINICIO.Name = "btnINICIO";
-            this.btnINICIO.Size = new System.Drawing.Size(200, 65);
+            this.btnINICIO.Size = new System.Drawing.Size(200, 135);
             this.btnINICIO.TabIndex = 0;
             this.btnINICIO.Text = "INICIO";
-            this.btnINICIO.UseVisualStyleBackColor = true;
+            this.btnINICIO.UseVisualStyleBackColor = false;
             this.btnINICIO.Click += new System.EventHandler(this.btnINICIO_Click);
             this.btnINICIO.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.btnINICIO.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
@@ -198,6 +244,7 @@
             // 
             // Form1
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1161, 531);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
