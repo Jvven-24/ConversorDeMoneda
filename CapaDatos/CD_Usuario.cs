@@ -15,26 +15,26 @@ namespace CapaDatos
         {
             return EjecutarMostrar("MostrarUsuario");  
         }
-        public void Insertar(string UsuarioNombre, string Contrasena)
+        public void Insertar(string UsuarioNombre, string Rol)
         {
             comando.Connection = conexion.ObtenerConexion();
-            comando.CommandText = "'Juaka', 1234";
+            comando.CommandText = "InsertarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@UsuarioNombre", UsuarioNombre);
-            comando.Parameters.AddWithValue("@Contrasena", Contrasena);
+            comando.Parameters.AddWithValue("@Rol", Rol);
 
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
     
         }
-        public virtual void Editar(string UsuarioNombre, string Contrasena, int UsuarioID)
+        public virtual void Editar(string UsuarioNombre, string Rol, int UsuarioID)
         {
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = "EditarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@UsuarioNombre", UsuarioNombre);
-            comando.Parameters.AddWithValue("@Contrasena", Contrasena);
+            comando.Parameters.AddWithValue("@Rol", Rol);
             comando.Parameters.AddWithValue("@UsuarioID", UsuarioID);
 
             comando.ExecuteNonQuery();

@@ -21,13 +21,13 @@ namespace CapaNegocio
     
         }
 
-        public void InsertarUsuario( string UsuarioNombre, string Contrasena)
+        public void InsertarUsuario( string UsuarioNombre, string Rol)
         {
-            objetoCD.Insertar(UsuarioNombre, Contrasena);
+            objetoCD.Insertar(UsuarioNombre, Rol);
         }
-        public void EditarUsuario(string UsuarioNombre, string Contrasena, string UsuarioID)
+        public void EditarUsuario(string UsuarioNombre, string Rol, string UsuarioID)
         {
-            objetoCD.Editar(UsuarioNombre, Contrasena, Convert.ToInt32(UsuarioID));
+            objetoCD.Editar(UsuarioNombre, Rol, Convert.ToInt32(UsuarioID));
         }
 
         public void EliminarUsuario(int TasaID)
