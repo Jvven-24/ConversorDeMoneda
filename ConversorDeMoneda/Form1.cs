@@ -53,6 +53,13 @@ namespace ConversorDeMoneda
             txtMoneda.Visible = true;
             txtTasaDeCambio.Visible = true;
         }
+
+        private void MostrarUsuario()
+        {
+            CN_Usuario objeto = new CN_Usuario();
+            dataGridView2.DataSource = objeto.MostrarUsuario();
+
+        }
         //Mostrar Tasa
         private void MostrarTasaCambio()
         {
@@ -173,12 +180,12 @@ namespace ConversorDeMoneda
 
         private void btnINICIO_Click(object sender, EventArgs e)
         {
-
+            FormInicio inicio = new FormInicio();
         }
 
         private void btnUSUARIO_Click(object sender, EventArgs e)
         {
-
+            MostrarUsuario();
         }
 
         private void btnTASACAMBIO_Click(object sender, EventArgs e)

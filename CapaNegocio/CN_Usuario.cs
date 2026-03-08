@@ -30,10 +30,17 @@ namespace CapaNegocio
             objetoCD.Editar(UsuarioNombre, Rol, Convert.ToInt32(UsuarioID));
         }
 
-        public void EliminarUsuario(int TasaID)
+        public void EliminarUsuario(int UsuarioID)
         {
-            objetoCD.Eliminar(Convert.ToInt32(TasaID));
+            objetoCD.Eliminar(Convert.ToInt32(UsuarioID));
         }
     }
 
+    public static class Sesion
+    {
+        public static int UsuarioID { get; set; }
+        
+        public static string UsuarioNombre { get; set; }
+        public static string Rol { get; set; }
+    }
 }

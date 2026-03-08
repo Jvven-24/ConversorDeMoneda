@@ -21,6 +21,8 @@ namespace CapaDatos
        
         protected virtual DataTable EjecutarMostrar(string storedProcudure)
         {
+            tabla = new DataTable();
+            comando = new SqlCommand();
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = storedProcudure;
             comando.CommandType = CommandType.StoredProcedure;
