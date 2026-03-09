@@ -16,7 +16,7 @@ namespace CapaDatos
             return EjecutarMostrar("MostrarConversion");
         }
 
-        public virtual void Insertar(int UsuarioID, int TasaID, decimal MontoOrigen, decimal MontoConvertido)
+        public virtual void Insertar(int UsuarioID, int TasaID, decimal MontoOrigen, decimal MontoConvertido, decimal ValorTasaUsada)
         {
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = "InsertarConversion";
@@ -25,6 +25,7 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@TasaID", TasaID);
             comando.Parameters.AddWithValue("@MontoOrigen", MontoOrigen);
             comando.Parameters.AddWithValue("@MontoConvertido", MontoConvertido);
+            comando.Parameters.AddWithValue("@ValorTasaUsada", ValorTasaUsada);
 
             comando.ExecuteNonQuery();
             LimpiarCeldas();

@@ -15,6 +15,7 @@ namespace CapaNegocio
         public int TasaID;
         public decimal MontoOrigen;
         public decimal MontoConvertido;
+        
 
         private CD_Conversion objetoCD;
 
@@ -36,9 +37,9 @@ namespace CapaNegocio
             return MontoConvertido;
         }
 
-        public void InsertarConversion(string UsuarioID, string TasaID, string MontoOrigen, string MontoConvertido)
+        public void InsertarConversion(string UsuarioID, string TasaID, string MontoOrigen, string MontoConvertido, string ValorTasaUsada)
         {
-            objetoCD.Insertar(Convert.ToInt32(UsuarioID), Convert.ToInt32(TasaID) , Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(MontoConvertido));
+            objetoCD.Insertar(Convert.ToInt32(UsuarioID), Convert.ToInt32(TasaID) , Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(MontoConvertido), Convert.ToDecimal(ValorTasaUsada));
 
         }
     }

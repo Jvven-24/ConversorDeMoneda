@@ -54,6 +54,14 @@ namespace ConversorDeMoneda
             txtTasaDeCambio.Visible = true;
         }
 
+        //Mostrar Conversion(Bitacora)
+        private void MostrarConversion()
+        {
+            CN_Conversion objeto = new CN_Conversion();
+            dataGridView2.DataSource = objeto.MostrarConversion();
+        }
+
+        //Mostrar Usuario
         private void MostrarUsuario()
         {
             CN_Usuario objeto = new CN_Usuario();
@@ -180,7 +188,8 @@ namespace ConversorDeMoneda
 
         private void btnINICIO_Click(object sender, EventArgs e)
         {
-            FormInicio inicio = new FormInicio();
+           FormConversion conversion = new FormConversion();
+            conversion.Show();
         }
 
         private void btnUSUARIO_Click(object sender, EventArgs e)
@@ -195,7 +204,7 @@ namespace ConversorDeMoneda
 
         private void btnREGISTRO_Click(object sender, EventArgs e)
         {
-
+            MostrarConversion();
         }
     }
-}// huepa
+}

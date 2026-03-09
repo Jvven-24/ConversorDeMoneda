@@ -158,6 +158,7 @@
             this.cmbMoneda.Name = "cmbMoneda";
             this.cmbMoneda.Size = new System.Drawing.Size(180, 36);
             this.cmbMoneda.TabIndex = 3;
+            this.cmbMoneda.SelectedIndexChanged += new System.EventHandler(this.cmbMoneda_SelectedIndexChanged);
             // 
             // lblMoneda
             // 

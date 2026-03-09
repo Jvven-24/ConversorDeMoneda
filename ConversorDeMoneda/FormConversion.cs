@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,20 @@ namespace ConversorDeMoneda
 
         private void FormConversion_Load(object sender, EventArgs e)
         {
+            lblUsuario.Text = Sesion.UsuarioNombre + " · " + Sesion.Rol;
 
+            CN_TasaCambio objeto = new CN_TasaCambio();
+            cmbMoneda.DataSource = objeto.MostrarTasa();
+            cmbMoneda.DisplayMember = "MonedaNombre";
+            cmbMoneda.ValueMember = "TasaID";
+            
+
+        }
+
+        private void cmbMoneda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataRowView fila = (DataRowView)cmbMoneda.SelectedItem;
+            lblTasa.Text = $"Tasa: {fila["ValorTasa"]}";
         }
     }
 }
