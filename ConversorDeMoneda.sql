@@ -69,13 +69,14 @@ create Table Usuario
 (
 UsuarioID int identity(1,1) primary key,
 UsuarioNombre varchar(50),
-Contrasena varchar(50)
+Rol varchar(50)
 )
 go
 
-insert into Usuario values ('Prueba' , '1234')
+insert into Usuario values ('JUAN' , 'Gerente')
 go
 
+drop table Usuario
 Select * from Usuario
 go
 ///PROCEDIMIENTO PARA MOSTRAR USUARIOS
@@ -84,30 +85,32 @@ as
 select *from Usuario
 go
 
+drop proc MostrarUsuario
 exec MostrarUsuario
 
 ///PROCEDIMEINTO PARA INSERTAR USUARIOS
 Create proc InsertarUsuario
 @UsuarioNombre varchar(50),
-@Contrasena varchar(50)
+@Rol varchar(50)
 as
-INSERT into Usuario (UsuarioNombre, Contrasena)
-values (@UsuarioNombre, @Contrasena)
+INSERT into Usuario (UsuarioNombre, Rol)
+values (@UsuarioNombre, @Rol)
 go
 
-exec InsertarUsuario 'Prueba2', '5678'
+drop proc InsertarUsuario
+exec InsertarUsuario 'Prueba2', 'Rol'
 
 ///PROCEDIMIENTO PARA EDITAR USUARIOS
 create proc EditarUsuario
 @UsuarioNombre varchar(50),
-@Contrasena varchar(50),
+@Rol varchar(50),
 @UsuarioID int
 as
-update Usuario set UsuarioNombre = @UsuarioNombre, Contrasena = @Contrasena
+update Usuario set UsuarioNombre = @UsuarioNombre, Rol = @Rol
 where UsuarioID = @UsuarioID
 go
 
-exec EditarUsuario 'Prueba3', '9012', 1
+exec EditarUsuario 'Prueba3', 'Gerente', 1
 
 drop proc EditarUsuario
 
@@ -119,6 +122,41 @@ delete from Usuario where UsuarioID = @UsuarioID
 go
 
 exec EliminarUsuario 2
-exec MostrarTasaCambio
 
-exec EliminarTasa 10
+exec mostrarUsuario
+
+
+///Tabla de conversion 
+create table Conversion
+(
+ConversionID int identity(1,1) primary key,
+UsuarioID int Foreign key references Usuario(UsuarioID),
+TasaID int Foreign key references TasaCambio(TasaID),
+MontoOrigen decimal(18,4),
+MontoConvertido decimal(18,4),
+FechaConversion datetime DEFAULT GETDATE()
+)
+
+drop table Conversion
+
+///Procedimiento Mostrar conversion
+Create proc MostrarConversion
+as
+select  * from Conversion
+go
+
+exec MostrarConversion
+
+///Procedimiento para insertar conversion
+create proc InsertarConversion
+@UsuarioID int,
+@TasaID int,
+@MontoOrigen decimal(18,4),
+@MontoConvertido decimal(18,4)
+as
+INSERT into Conversion (UsuarioID, TasaID, MontoOrigen, MontoConvertido)
+values (@UsuarioID, @TasaID, @MontoOrigen, @MontoConvertido)
+go
+
+
+
