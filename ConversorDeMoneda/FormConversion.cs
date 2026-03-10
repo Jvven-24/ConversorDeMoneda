@@ -41,8 +41,8 @@ namespace ConversorDeMoneda
         private void btnConversion_Click(object sender, EventArgs e)
         {
             CN_Conversion calculo = new CN_Conversion();
-            calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
-            lblResultado.Text = $"{calculo.MontoConvertido}";
+            string resultado = calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
+            lblResultado.Text = resultado;
 
 
         }

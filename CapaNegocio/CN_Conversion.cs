@@ -32,9 +32,9 @@ namespace CapaNegocio
             return tabla;
         }
 
-        public decimal CalculoConversion(decimal MontoOrigen, decimal ValorTasa,decimal MontoConvertido)
+        public decimal CalculoConversion(decimal MontoOrigen, decimal ValorTasa)
         {
-           MontoConvertido = MontoOrigen * ValorTasa;
+           decimal MontoConvertido = MontoOrigen * ValorTasa;
             return MontoConvertido;
         }
 
@@ -44,10 +44,10 @@ namespace CapaNegocio
 
         }
 
-        public void ObtenerConversion(string MontoOrigen, string ValorTasa)
+        public string ObtenerConversion(string MontoOrigen, string ValorTasa)
         {
-           CN_Conversion objetoCN = new CN_Conversion();
-            objetoCN.CalculoConversion(Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(ValorTasa),0);
+            return $"{CalculoConversion (Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(ValorTasa))}";
+
             
         }
     }
