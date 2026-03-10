@@ -52,6 +52,7 @@
             // 
             // pnlCard
             // 
+            this.pnlCard.AutoSize = true;
             this.pnlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.pnlCard.BorderRadius = 18;
             this.pnlCard.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -69,7 +70,7 @@
             this.pnlCard.Controls.Add(this.lblUsuario);
             this.pnlCard.Controls.Add(this.lblTitulo);
             this.pnlCard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.pnlCard.Location = new System.Drawing.Point(72, 50);
+            this.pnlCard.Location = new System.Drawing.Point(77, 50);
             this.pnlCard.Name = "pnlCard";
             this.pnlCard.Size = new System.Drawing.Size(440, 360);
             this.pnlCard.TabIndex = 0;
@@ -122,9 +123,8 @@
             this.lblResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
             this.lblResultado.Location = new System.Drawing.Point(20, 20);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(145, 37);
+            this.lblResultado.Size = new System.Drawing.Size(0, 37);
             this.lblResultado.TabIndex = 0;
-            this.lblResultado.Text = "Resultado";
             // 
             // txtMonto
             // 
@@ -288,6 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(620, 480);
             this.Controls.Add(this.pnlCard);
@@ -301,6 +302,7 @@
             this.pnlResultado.ResumeLayout(false);
             this.pnlResultado.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
