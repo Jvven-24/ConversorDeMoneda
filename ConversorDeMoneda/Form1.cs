@@ -188,22 +188,29 @@ namespace ConversorDeMoneda
 
         private void btnINICIO_Click(object sender, EventArgs e)
         {
-           FormConversion conversion = new FormConversion();
+            panelinicio.Visible = true;
+            FormConversion conversion = new FormConversion();
+            conversion.TopLevel= false;
+
+            panelinicio.Controls.Add(conversion);
             conversion.Show();
         }
 
         private void btnUSUARIO_Click(object sender, EventArgs e)
         {
+            panelinicio.Visible = false;
             MostrarUsuario();
         }
 
         private void btnTASACAMBIO_Click(object sender, EventArgs e)
         {
+            panelinicio.Visible = false;
             MostrarTasaCambio();
         }
 
         private void btnREGISTRO_Click(object sender, EventArgs e)
         {
+            panelinicio.Visible = false;
             MostrarConversion();
         }
     }
