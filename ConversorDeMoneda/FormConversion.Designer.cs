@@ -39,6 +39,13 @@
             this.lblMoneda = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnlCard.SuspendLayout();
             this.pnlResultado.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +53,13 @@
             // pnlCard
             // 
             this.pnlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.pnlCard.BorderRadius = 12;
+            this.pnlCard.BorderRadius = 18;
+            this.pnlCard.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.pnlCard.Controls.Add(this.guna2HtmlLabel3);
+            this.pnlCard.Controls.Add(this.guna2HtmlLabel2);
+            this.pnlCard.Controls.Add(this.guna2HtmlLabel1);
+            this.pnlCard.Controls.Add(this.label4);
+            this.pnlCard.Controls.Add(this.label3);
             this.pnlCard.Controls.Add(this.btnConversion);
             this.pnlCard.Controls.Add(this.pnlResultado);
             this.pnlCard.Controls.Add(this.txtMonto);
@@ -78,6 +91,8 @@
             // 
             this.pnlResultado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
             this.pnlResultado.BorderRadius = 10;
+            this.pnlResultado.Controls.Add(this.label2);
+            this.pnlResultado.Controls.Add(this.label1);
             this.pnlResultado.Controls.Add(this.lblTasa);
             this.pnlResultado.Controls.Add(this.lblResultado);
             this.pnlResultado.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
@@ -90,17 +105,19 @@
             // lblTasa
             // 
             this.lblTasa.AutoSize = true;
+            this.lblTasa.BackColor = System.Drawing.Color.Transparent;
             this.lblTasa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTasa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(192)))), ((int)(((byte)(123)))));
-            this.lblTasa.Location = new System.Drawing.Point(300, 28);
+            this.lblTasa.Location = new System.Drawing.Point(331, 28);
             this.lblTasa.Name = "lblTasa";
-            this.lblTasa.Size = new System.Drawing.Size(41, 15);
+            this.lblTasa.Size = new System.Drawing.Size(15, 15);
             this.lblTasa.TabIndex = 1;
-            this.lblTasa.Text = "Tasa: -";
+            this.lblTasa.Text = " -";
             // 
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
+            this.lblResultado.BackColor = System.Drawing.Color.Transparent;
             this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
             this.lblResultado.Location = new System.Drawing.Point(20, 20);
@@ -135,13 +152,13 @@
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
+            this.lblMonto.BackColor = System.Drawing.Color.Transparent;
             this.lblMonto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(38)))), ((int)(((byte)(114)))));
-            this.lblMonto.Location = new System.Drawing.Point(220, 75);
+            this.lblMonto.Location = new System.Drawing.Point(230, 75);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(78, 13);
+            this.lblMonto.Size = new System.Drawing.Size(0, 13);
             this.lblMonto.TabIndex = 4;
-            this.lblMonto.Text = "MontoOrigen";
             // 
             // cmbMoneda
             // 
@@ -169,9 +186,8 @@
             this.lblMoneda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(38)))), ((int)(((byte)(114)))));
             this.lblMoneda.Location = new System.Drawing.Point(20, 75);
             this.lblMoneda.Name = "lblMoneda";
-            this.lblMoneda.Size = new System.Drawing.Size(120, 13);
+            this.lblMoneda.Size = new System.Drawing.Size(0, 13);
             this.lblMoneda.TabIndex = 2;
-            this.lblMoneda.Text = "seleccione la  moneda";
             // 
             // lblUsuario
             // 
@@ -186,11 +202,87 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
-            this.lblTitulo.Location = new System.Drawing.Point(20, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(133, 28);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(170, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(0, 25);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Hacer Conversión";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(192)))), ((int)(((byte)(123)))));
+            this.label1.Location = new System.Drawing.Point(284, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tasa: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.label2.Location = new System.Drawing.Point(39, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Resultado";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(192)))), ((int)(((byte)(123)))));
+            this.label3.Location = new System.Drawing.Point(281, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(59, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(313, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "___________________________________________________";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(138, 28);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(175, 32);
+            this.guna2HtmlLabel1.TabIndex = 10;
+            this.guna2HtmlLabel1.Text = "<span style=\'color:#abb2bf\'>Hacer</span> <span style=\'color:#4fffb0\'>Conversión</" +
+    "span>";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(30, 75);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(98, 15);
+            this.guna2HtmlLabel2.TabIndex = 11;
+            this.guna2HtmlLabel2.Text = "<span style=\'color:#f92672\'>seleccionar</span> <span style=\'color:#e6c07b\'>moneda" +
+    "</span>\r\n";
+            this.guna2HtmlLabel2.Click += new System.EventHandler(this.guna2HtmlLabel2_Click);
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(322, 75);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(87, 15);
+            this.guna2HtmlLabel3.TabIndex = 12;
+            this.guna2HtmlLabel3.Text = "<span style=\'color:#f92672\'>Monto a</span> <span style=\'color:#abb2bf\'>Convertir<" +
+    "/span>";
             // 
             // FormConversion
             // 
@@ -225,5 +317,12 @@
         private System.Windows.Forms.Label lblTasa;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.Button btnConversion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }
