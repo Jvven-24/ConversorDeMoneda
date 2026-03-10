@@ -72,6 +72,7 @@
             this.btnConversion.TabIndex = 7;
             this.btnConversion.Text = "Conversion";
             this.btnConversion.UseVisualStyleBackColor = false;
+            this.btnConversion.Click += new System.EventHandler(this.btnConversion_Click);
             // 
             // pnlResultado
             // 
@@ -129,6 +130,7 @@
             this.txtMonto.SelectedText = "";
             this.txtMonto.Size = new System.Drawing.Size(190, 40);
             this.txtMonto.TabIndex = 5;
+            this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             // 
             // lblMonto
             // 

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,7 +34,22 @@ namespace ConversorDeMoneda
         private void cmbMoneda_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataRowView fila = (DataRowView)cmbMoneda.SelectedItem;
-            lblTasa.Text = $"Tasa: {fila["ValorTasa"]}";
+            lblTasa.Text = $"{fila["ValorTasa"]}";
+
+        }
+
+        private void btnConversion_Click(object sender, EventArgs e)
+        {
+            CN_Conversion calculo = new CN_Conversion();
+            calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
+            lblResultado.Text = $"{calculo.MontoConvertido}";
+
+
+        }
+
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

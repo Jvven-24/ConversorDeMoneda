@@ -13,8 +13,9 @@ namespace CapaNegocio
     {
         public int UsuarioID;
         public int TasaID;
-        public decimal MontoOrigen;
-        public decimal MontoConvertido;
+        public decimal MontoOrigen { get; set; }
+        public decimal MontoConvertido { get; set; }
+
         
 
         private CD_Conversion objetoCD;
@@ -31,9 +32,9 @@ namespace CapaNegocio
             return tabla;
         }
 
-        public decimal CalculoConversion(decimal MontoOrigen,  decimal MontoConvertido, decimal ValorTasa)
+        public decimal CalculoConversion(decimal MontoOrigen, decimal ValorTasa,decimal MontoConvertido)
         {
-            MontoConvertido = MontoOrigen * ValorTasa;
+           MontoConvertido = MontoOrigen * ValorTasa;
             return MontoConvertido;
         }
 
@@ -41,6 +42,13 @@ namespace CapaNegocio
         {
             objetoCD.Insertar(Convert.ToInt32(UsuarioID), Convert.ToInt32(TasaID) , Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(MontoConvertido), Convert.ToDecimal(ValorTasaUsada));
 
+        }
+
+        public void ObtenerConversion(string MontoOrigen, string ValorTasa)
+        {
+           CN_Conversion objetoCN = new CN_Conversion();
+            objetoCN.CalculoConversion(Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(ValorTasa),0);
+            
         }
     }
 }
