@@ -120,28 +120,22 @@ Server=.; Database=ConversorDeMoneda; Integrated Security=true;
 
 ---
 
-## 🧠 Capa de Negocio
-
-### `Sesion` (clase estática)
+🧠 Capa de Negocio
+Sesion (clase estática)
 Almacena los datos del usuario activo durante toda la sesión de la aplicación.
-```csharp
-public static int    UsuarioID     { get; set; }
+csharppublic static int    UsuarioID     { get; set; }
 public static string UsuarioNombre { get; set; }
 public static string Rol           { get; set; }
-```
+CN_Conversion
+Contiene la lógica de cálculo de conversión entre dos monedas cualesquiera usando DOP como moneda base intermedia.
+csharp// Fórmula: (monto × tasaOrigen) / tasaDestino
+public decimal CalculoConversion(decimal MontoOrigen, decimal TasaOrigen, decimal TasaDestino)
+    => (MontoOrigen * TasaOrigen) / TasaDestino;
 
-### `CN_Conversion`
-Contiene la lógica de cálculo de conversión entre monedas usando DOP como moneda base.
+Ejemplo: 100 USD (tasa 60.00) → GBP (tasa 81.08) = (100 × 60) / 81.08 = 74.00 GBP
 
-```csharp
-// Fórmula: monto × valorTasa
-public decimal CalculoConversion(decimal MontoOrigen, decimal ValorTasa)
-    => MontoOrigen * ValorTasa;
-```
-
-> Ejemplo: 100 USD × 60.00 (tasa DOP) = RD$ 6,000.00
-
----
+ObtenerConversion() llama a CalculoConversion() y devuelve el resultado formateado con 2 decimales.
+InsertarConversion() guarda el registro con 7 parámetros: UsuarioID, TasaOrigenID, TasaDestinoID, MontoOrigen, MontoConvertido, ValorTasaOrigen y ValorTasaDestino.
 
 ## 🖥️ Capa de Presentación
 
