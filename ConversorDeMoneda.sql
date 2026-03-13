@@ -130,13 +130,16 @@ exec mostrarUsuario
 ///Tabla de conversion 
 create table Conversion
 (
-ConversionID int identity(1,1) primary key,
-UsuarioID int Foreign key references Usuario(UsuarioID),
-TasaID int Foreign key references TasaCambio(TasaID),
-MontoOrigen decimal(18,4),
-MontoConvertido decimal(18,4),
-FechaConversion datetime DEFAULT GETDATE()
-ValorTasaUsada decimal(18,4)
+ConversionID     int IDENTITY(1,1) PRIMARY KEY,
+    UsuarioID        int FOREIGN KEY REFERENCES Usuario(UsuarioID),
+    TasaOrigenID     int FOREIGN KEY REFERENCES TasaCambio(TasaID),
+    TasaDestinoID    int FOREIGN KEY REFERENCES TasaCambio(TasaID),
+    MontoOrigen      decimal(18,4),
+    MontoConvertido  decimal(18,4),
+    ValorTasaOrigen  decimal(18,4),
+    ValorTasaDestino decimal(18,4),
+    FechaConversion  datetime DEFAULT GETDATE()
+
 )
 
 drop table Conversion
@@ -150,16 +153,21 @@ go
 exec MostrarConversion
 
 ///Procedimiento para insertar conversion
-create proc InsertarConversion
-@UsuarioID int,
-@TasaID int,
-@MontoOrigen decimal(18,4),
-@MontoConvertido decimal(18,4),
-@ValorTasaUsada decimal(18,4)
-as
-INSERT into Conversion (UsuarioID, TasaID, MontoOrigen, MontoConvertido, ValorTasaUsada)
-values (@UsuarioID, @TasaID, @MontoOrigen, @MontoConvertido, @ValorTasaUsada)
-go
+CREATE PROC InsertarConversion
+    @UsuarioID        int,
+    @TasaOrigenID     int,
+    @TasaDestinoID    int,
+    @MontoOrigen      decimal(18,4),
+    @MontoConvertido  decimal(18,4),
+    @ValorTasaOrigen  decimal(18,4),
+    @ValorTasaDestino decimal(18,4)
+AS
+    INSERT INTO Conversion (UsuarioID, TasaOrigenID, TasaDestinoID, MontoOrigen, MontoConvertido, ValorTasaOrigen, ValorTasaDestino)
+    VALUES (@UsuarioID, @TasaOrigenID, @TasaDestinoID, @MontoOrigen, @MontoConvertido, @ValorTasaOrigen, @ValorTasaDestino)
+GO
+
+drop proc InsertarConversion
+
 
 ///Tabla Auditoria
 create table Auditoria
@@ -186,3 +194,4 @@ as
 INSERT into Auditoria (UsuarioID, Accion)
 values (@UsuarioID, @Accion)
 go
+
