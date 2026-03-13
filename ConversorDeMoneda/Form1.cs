@@ -31,7 +31,7 @@ namespace ConversorDeMoneda
 
 
         //Metodo para limpiar las casillas 
-        private void limpiarFormTasaCambio()
+        private void limpiarForm()
         {
             txtMoneda.Clear();
             txtTasaDeCambio.Clear();
@@ -48,7 +48,7 @@ namespace ConversorDeMoneda
                     auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Tasa - Ejecutada");
                     MessageBox.Show("Se insertó correctamente");
                     MostrarTasaCambio();
-                    limpiarFormTasaCambio();
+                    limpiarForm();
                 }
                 catch (Exception ex)
                 {
@@ -63,7 +63,7 @@ namespace ConversorDeMoneda
                     auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Tasa - Ejecutada");
                     MessageBox.Show("Se editó correctamente");
                     MostrarTasaCambio();
-                    limpiarFormTasaCambio();
+                    limpiarForm();
                     Editar = false;
                 }
                 catch (Exception ex)
@@ -110,7 +110,7 @@ namespace ConversorDeMoneda
                     auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Usuario - Ejecutada");
                     MessageBox.Show("Se insertó correctamente");
                     MostrarUsuario();
-                    limpiarFormTasaCambio();
+                    limpiarForm();
                 }
                 catch (Exception ex)
                 {
@@ -125,7 +125,7 @@ namespace ConversorDeMoneda
                     auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Usuario - Ejecutada");
                     MessageBox.Show("Se editó correctamente");
                     MostrarUsuario();
-                    limpiarFormTasaCambio();
+                    limpiarForm();
                     Editar = false;
                 }
                 catch (Exception ex)
@@ -154,7 +154,7 @@ namespace ConversorDeMoneda
             {
                 UsuarioID = dataGridView2.CurrentRow.Cells["UsuarioID"].Value.ToString();
                 auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Usuario - Ejecutada");
-                objetoCN.EliminarTasa(UsuarioID);
+                UsuarioCN.EliminarUsuario(UsuarioID);
                 MessageBox.Show("Eliminado correctamente");
                 MostrarUsuario();
             }
@@ -171,30 +171,11 @@ namespace ConversorDeMoneda
         private void Form1_Load(object sender, EventArgs e)
         {
             panel1.Width = MENU_COLAPSADO;
-            btnEditar.Visible = false;
-            btnGuardar.Visible = false;
-            btnEliminar.Visible = false;
-
-
-            label1.Visible = false;
-            label2.Visible = false;
-            txtMoneda.Visible = false;
-            txtTasaDeCambio.Visible = false;    
+            panelbotones.Visible = false;
             
         }
 
-        private void Botones()
-        {
-            btnEditar.Visible = true;
-            btnGuardar.Visible = true;
-            btnEliminar.Visible = true;
-
-
-            label1.Visible = true;
-            label2.Visible = true;
-            txtMoneda.Visible = true;
-            txtTasaDeCambio.Visible = true;
-        }
+        
 
         //Mostrar Conversion(Bitacora)
         private void MostrarConversion()
@@ -215,7 +196,7 @@ namespace ConversorDeMoneda
         {
             CN_TasaCambio objeto = new CN_TasaCambio(); // Se utiliza para actualizar la vista de la tabla 
             dataGridView2.DataSource = objeto.MostrarTasa();
-            Botones();
+           
          
         }
 
@@ -297,6 +278,7 @@ namespace ConversorDeMoneda
 
         private void btnINICIO_Click(object sender, EventArgs e)
         {
+            panelbotones.Visible = false;
             panelinicio.Visible = true;
             FormConversion conversion = new FormConversion();
             conversion.TopLevel= false;
@@ -307,6 +289,11 @@ namespace ConversorDeMoneda
 
         private void btnUSUARIO_Click(object sender, EventArgs e)
         {
+            lblmoneda.Visible = false;
+            lblTasa.Visible = false;
+            lblUsuario.Visible = true;
+            lblrol.Visible = true;
+            panelbotones.Visible = true;
             panelinicio.Visible = false;
             moduloActivo = "Usuario";
             MostrarUsuario();
@@ -314,6 +301,11 @@ namespace ConversorDeMoneda
 
         private void btnTASACAMBIO_Click(object sender, EventArgs e)
         {
+            lblUsuario.Visible = false;
+            lblrol.Visible = false;
+            lblmoneda.Visible = true;
+            lblTasa.Visible = true;
+            panelbotones.Visible = true;
             panelinicio.Visible = false;
             moduloActivo = "Tasa";
             MostrarTasaCambio();
@@ -321,6 +313,8 @@ namespace ConversorDeMoneda
 
         private void btnREGISTRO_Click(object sender, EventArgs e)
         {
+           
+            panelbotones.Visible = false;
             panelinicio.Visible = false;
             MostrarConversion();
         }
@@ -332,6 +326,7 @@ namespace ConversorDeMoneda
 
         private void btnAuditoria_Click(object sender, EventArgs e)
         {
+            panelbotones.Visible = false;
             panelinicio.Visible = false;
             MostrarAuditoria();
         }

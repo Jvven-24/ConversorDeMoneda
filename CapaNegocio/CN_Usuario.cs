@@ -30,7 +30,7 @@ namespace CapaNegocio
             objetoCD.Editar(UsuarioNombre, Rol, Convert.ToInt32(UsuarioID));
         }
 
-        public void EliminarUsuario(int UsuarioID)
+        public void EliminarUsuario(string UsuarioID)
         {
             objetoCD.Eliminar(Convert.ToInt32(UsuarioID));
         }
