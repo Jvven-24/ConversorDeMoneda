@@ -195,13 +195,14 @@
             // btnAuditoria
             // 
             this.btnAuditoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(40)))));
+            this.btnAuditoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAuditoria.FlatAppearance.BorderSize = 0;
             this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAuditoria.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAuditoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
-            this.btnAuditoria.Location = new System.Drawing.Point(0, 399);
+            this.btnAuditoria.Location = new System.Drawing.Point(0, 410);
             this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(200, 129);
+            this.btnAuditoria.Size = new System.Drawing.Size(200, 132);
             this.btnAuditoria.TabIndex = 12;
             this.btnAuditoria.Text = "AUDITORIA";
             this.btnAuditoria.UseVisualStyleBackColor = false;
@@ -215,9 +216,9 @@
             this.btnREGISTRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREGISTRO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnREGISTRO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
-            this.btnREGISTRO.Location = new System.Drawing.Point(0, 297);
+            this.btnREGISTRO.Location = new System.Drawing.Point(0, 306);
             this.btnREGISTRO.Name = "btnREGISTRO";
-            this.btnREGISTRO.Size = new System.Drawing.Size(200, 101);
+            this.btnREGISTRO.Size = new System.Drawing.Size(200, 104);
             this.btnREGISTRO.TabIndex = 11;
             this.btnREGISTRO.Text = "REGISTRO";
             this.btnREGISTRO.UseVisualStyleBackColor = false;
@@ -233,9 +234,9 @@
             this.btnTASACAMBIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTASACAMBIO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTASACAMBIO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
-            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 201);
+            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 207);
             this.btnTASACAMBIO.Name = "btnTASACAMBIO";
-            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 96);
+            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 99);
             this.btnTASACAMBIO.TabIndex = 10;
             this.btnTASACAMBIO.Text = "TASA DE CAMBIO";
             this.btnTASACAMBIO.UseVisualStyleBackColor = false;
@@ -251,9 +252,9 @@
             this.btnUSUARIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUSUARIO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUSUARIO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
-            this.btnUSUARIO.Location = new System.Drawing.Point(0, 96);
+            this.btnUSUARIO.Location = new System.Drawing.Point(0, 99);
             this.btnUSUARIO.Name = "btnUSUARIO";
-            this.btnUSUARIO.Size = new System.Drawing.Size(200, 105);
+            this.btnUSUARIO.Size = new System.Drawing.Size(200, 108);
             this.btnUSUARIO.TabIndex = 9;
             this.btnUSUARIO.Text = "USUARIO";
             this.btnUSUARIO.UseVisualStyleBackColor = false;
@@ -271,7 +272,7 @@
             this.btnINICIO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
             this.btnINICIO.Location = new System.Drawing.Point(0, 0);
             this.btnINICIO.Name = "btnINICIO";
-            this.btnINICIO.Size = new System.Drawing.Size(200, 96);
+            this.btnINICIO.Size = new System.Drawing.Size(200, 99);
             this.btnINICIO.TabIndex = 0;
             this.btnINICIO.Text = "INICIO";
             this.btnINICIO.UseVisualStyleBackColor = false;
