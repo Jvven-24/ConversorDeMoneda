@@ -46,6 +46,10 @@
             this.lblMoneda = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.cmbMonedaDestino = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.flechita = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblre = new System.Windows.Forms.Label();
             this.pnlCard.SuspendLayout();
             this.pnlResultado.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +60,9 @@
             this.pnlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.pnlCard.BorderRadius = 18;
             this.pnlCard.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.pnlCard.Controls.Add(this.flechita);
+            this.pnlCard.Controls.Add(this.guna2HtmlLabel4);
+            this.pnlCard.Controls.Add(this.cmbMonedaDestino);
             this.pnlCard.Controls.Add(this.guna2HtmlLabel3);
             this.pnlCard.Controls.Add(this.guna2HtmlLabel2);
             this.pnlCard.Controls.Add(this.guna2HtmlLabel1);
@@ -78,7 +85,7 @@
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(322, 75);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(23, 137);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(87, 15);
             this.guna2HtmlLabel3.TabIndex = 12;
@@ -133,7 +140,7 @@
             this.btnConversion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
             this.btnConversion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConversion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(31)))));
-            this.btnConversion.Location = new System.Drawing.Point(120, 260);
+            this.btnConversion.Location = new System.Drawing.Point(113, 298);
             this.btnConversion.Name = "btnConversion";
             this.btnConversion.Size = new System.Drawing.Size(200, 42);
             this.btnConversion.TabIndex = 7;
@@ -145,13 +152,14 @@
             // 
             this.pnlResultado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(255)))), ((int)(((byte)(176)))));
             this.pnlResultado.BorderRadius = 10;
+            this.pnlResultado.Controls.Add(this.lblre);
             this.pnlResultado.Controls.Add(this.label2);
             this.pnlResultado.Controls.Add(this.label1);
             this.pnlResultado.Controls.Add(this.lblTasa);
             this.pnlResultado.Controls.Add(this.lblResultado);
             this.pnlResultado.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.pnlResultado.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.pnlResultado.Location = new System.Drawing.Point(20, 155);
+            this.pnlResultado.Location = new System.Drawing.Point(23, 212);
             this.pnlResultado.Name = "pnlResultado";
             this.pnlResultado.Size = new System.Drawing.Size(400, 80);
             this.pnlResultado.TabIndex = 6;
@@ -218,11 +226,11 @@
             this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
             this.txtMonto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMonto.Location = new System.Drawing.Point(220, 95);
+            this.txtMonto.Location = new System.Drawing.Point(20, 158);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.PlaceholderText = "";
             this.txtMonto.SelectedText = "";
-            this.txtMonto.Size = new System.Drawing.Size(190, 40);
+            this.txtMonto.Size = new System.Drawing.Size(403, 40);
             this.txtMonto.TabIndex = 5;
             this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             // 
@@ -285,6 +293,56 @@
             this.lblTitulo.Size = new System.Drawing.Size(0, 25);
             this.lblTitulo.TabIndex = 0;
             // 
+            // cmbMonedaDestino
+            // 
+            this.cmbMonedaDestino.BackColor = System.Drawing.Color.Transparent;
+            this.cmbMonedaDestino.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(85)))));
+            this.cmbMonedaDestino.BorderRadius = 8;
+            this.cmbMonedaDestino.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbMonedaDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonedaDestino.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(56)))));
+            this.cmbMonedaDestino.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbMonedaDestino.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbMonedaDestino.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbMonedaDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
+            this.cmbMonedaDestino.ItemHeight = 30;
+            this.cmbMonedaDestino.Location = new System.Drawing.Point(243, 95);
+            this.cmbMonedaDestino.Name = "cmbMonedaDestino";
+            this.cmbMonedaDestino.Size = new System.Drawing.Size(180, 36);
+            this.cmbMonedaDestino.TabIndex = 13;
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(325, 75);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(98, 15);
+            this.guna2HtmlLabel4.TabIndex = 14;
+            this.guna2HtmlLabel4.Text = "<span style=\'color:#f92672\'>seleccionar</span> <span style=\'color:#e6c07b\'>moneda" +
+    "</span>\r\n";
+            // 
+            // flechita
+            // 
+            this.flechita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flechita.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.flechita.Location = new System.Drawing.Point(211, 95);
+            this.flechita.Name = "flechita";
+            this.flechita.Size = new System.Drawing.Size(19, 22);
+            this.flechita.TabIndex = 15;
+            this.flechita.Text = "→";
+            // 
+            // lblre
+            // 
+            this.lblre.AutoSize = true;
+            this.lblre.BackColor = System.Drawing.Color.Transparent;
+            this.lblre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(114)))), ((int)(((byte)(128)))));
+            this.lblre.Location = new System.Drawing.Point(114, 38);
+            this.lblre.Name = "lblre";
+            this.lblre.Size = new System.Drawing.Size(0, 15);
+            this.lblre.TabIndex = 4;
+            this.lblre.Click += new System.EventHandler(this.lblre_Click);
+            // 
             // FormConversion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,5 +385,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel flechita;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbMonedaDestino;
+        private System.Windows.Forms.Label lblre;
     }
 }

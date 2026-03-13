@@ -90,11 +90,19 @@ namespace ConversorDeMoneda
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
-                TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString();
-                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Tasa - Ejecutada");
-                objetoCN.EliminarTasa(TasaID);
-                MessageBox.Show("Eliminado correctamente");
-                MostrarTasaCambio();
+                try
+                {
+                    TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString();
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Tasa - Ejecutada");
+                    objetoCN.EliminarTasa(TasaID);
+                    MessageBox.Show("Eliminado correctamente");
+                    MostrarTasaCambio();
+                }
+                catch (Exception ex)
+                {
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Tasa - Fallo");
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
                 MessageBox.Show("Seleccione una fila por favor");

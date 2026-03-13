@@ -39,6 +39,7 @@ namespace CapaDatos
 
         public virtual void Eliminar(string storedProcedure, string parametro, int id)
         {
+
             comando.Connection = conexion.ObtenerConexion();
             comando.CommandText = storedProcedure;
             comando.CommandType = CommandType.StoredProcedure;

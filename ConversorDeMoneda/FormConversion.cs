@@ -23,12 +23,19 @@ namespace ConversorDeMoneda
         private void FormConversion_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = Sesion.UsuarioNombre + " " +"ID:"+ Sesion.UsuarioID + Sesion.Rol;
+           ;
 
             CN_TasaCambio objeto = new CN_TasaCambio();
-            cmbMoneda.DataSource = objeto.MostrarTasa();
+            DataTable tasas = objeto.MostrarTasa();
+
+            cmbMoneda.DataSource = tasas;
             cmbMoneda.DisplayMember = "MonedaNombre";
             cmbMoneda.ValueMember = "TasaID";
-            
+
+            cmbMonedaDestino.DataSource = tasas.Copy();
+            cmbMonedaDestino.DisplayMember = "MonedaNombre";
+            cmbMonedaDestino.ValueMember = "TasaID";
+
 
         }
 
@@ -43,17 +50,32 @@ namespace ConversorDeMoneda
         {
             try
             {
-                CN_Conversion calculo = new CN_Conversion();
-                string resultado = calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
-                lblResultado.Text = resultado;
-                calculo.InsertarConversion(Sesion.UsuarioID.ToString(), cmbMoneda.SelectedValue.ToString(), txtMonto.Text, resultado, lblTasa.Text);
-                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Conversion - Ejecutada");
+                DataRowView filaOrigen = (DataRowView)cmbMoneda.SelectedItem;
+                DataRowView filaDestino = (DataRowView)cmbMonedaDestino.SelectedItem;
 
+                string tasaOrigen = filaOrigen["ValorTasa"].ToString();
+                string tasaDestino = filaDestino["ValorTasa"].ToString();
+
+                CN_Conversion calculo = new CN_Conversion();
+                string resultado = calculo.ObtenerConversion(txtMonto.Text, tasaOrigen, tasaDestino);
+                lblResultado.Text = resultado;
+                lblre.Text = filaDestino["MonedaNombre"].ToString();
+
+                calculo.InsertarConversion(
+                    Sesion.UsuarioID.ToString(),
+                    cmbMoneda.SelectedValue.ToString(),
+                    cmbMonedaDestino.SelectedValue.ToString(),
+                    txtMonto.Text,
+                    resultado,
+                    tasaOrigen,
+                    tasaDestino
+                );
+                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Conversion - Ejecutada");
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Conversion - Fallo");
-                MessageBox.Show("Conversion no realizada por : " + ex);
+                MessageBox.Show("Conversion no realizada por: " + ex.Message);
             }
         }
 
@@ -63,6 +85,11 @@ namespace ConversorDeMoneda
         }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblre_Click(object sender, EventArgs e)
         {
 
         }

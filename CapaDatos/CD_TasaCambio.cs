@@ -46,7 +46,19 @@ namespace CapaDatos
           
         }
 
-        public void Eliminar(int TasaID )
+        public override void Eliminar(string storedProcedure, string parametro, int id)
+        {
+            try
+            {
+                base.Eliminar(storedProcedure, parametro, id);
+            }
+            catch (SqlException )
+            {
+                throw new Exception("No se puede eliminar esta tasa porque tiene conversiones registradas.");
+            }
+        }
+
+        public void Eliminar(int TasaID)
         {
             Eliminar("EliminarTasa", "@TasaID", TasaID);
         }

@@ -32,23 +32,31 @@ namespace CapaNegocio
             return tabla;
         }
 
-        public decimal CalculoConversion(decimal MontoOrigen, decimal ValorTasa)
+        public decimal CalculoConversion(decimal MontoOrigen, decimal TasaOrigen, decimal TasaDestino)
         {
-           decimal MontoConvertido = MontoOrigen * ValorTasa;
-            return MontoConvertido;
+            return (MontoOrigen * TasaOrigen) / TasaDestino;
         }
 
-        public void InsertarConversion(string UsuarioID, string TasaID, string MontoOrigen, string MontoConvertido, string ValorTasaUsada)
+        public void InsertarConversion(string UsuarioID, string TasaOrigenID, string TasaDestinoID, string MontoOrigen, string MontoConvertido, string ValorTasaOrigen, string ValorTasaDestino)
         {
-            objetoCD.Insertar(Convert.ToInt32(UsuarioID), Convert.ToInt32(TasaID) , Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(MontoConvertido), Convert.ToDecimal(ValorTasaUsada));
-
+            objetoCD.Insertar(
+                Convert.ToInt32(UsuarioID),
+                Convert.ToInt32(TasaOrigenID),
+                Convert.ToInt32(TasaDestinoID),
+                Convert.ToDecimal(MontoOrigen),
+                Convert.ToDecimal(MontoConvertido),
+                Convert.ToDecimal(ValorTasaOrigen),
+                Convert.ToDecimal(ValorTasaDestino)
+            );
         }
 
-        public string ObtenerConversion(string MontoOrigen, string ValorTasa)
+        public string ObtenerConversion(string MontoOrigen, string TasaOrigen, string TasaDestino)
         {
-            return $"{CalculoConversion (Convert.ToDecimal(MontoOrigen), Convert.ToDecimal(ValorTasa))}";
-
-            
+            return CalculoConversion(
+                Convert.ToDecimal(MontoOrigen),
+                Convert.ToDecimal(TasaOrigen),
+                Convert.ToDecimal(TasaDestino)
+            ).ToString("N2");
         }
     }
 }
