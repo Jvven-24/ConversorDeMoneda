@@ -14,12 +14,154 @@ namespace ConversorDeMoneda
     public partial class Form1 : Form
     {
         CN_TasaCambio objetoCN = new CN_TasaCambio();
+        CN_Usuario UsuarioCN = new CN_Usuario();
+        CN_Auditoria auditoria = new CN_Auditoria();
+
+        private string UsuarioID = null;
         private string TasaID = null;
         private bool Editar = false;
+        private string moduloActivo = "";
+
+
+        //Configuracion del menu
         private const int MENU_COLAPSADO = 60;
         private const int MENU_EXPANDIDO = 200;
         private const int VELOCIDAD_ANIM = 30;
         private bool menuExpandiendo = false;
+
+
+        //Metodo para limpiar las casillas 
+        private void limpiarFormTasaCambio()
+        {
+            txtMoneda.Clear();
+            txtTasaDeCambio.Clear();
+
+        }
+
+        //Metodos para Botones de la Tabla TasaCambio
+        private void GuardarTasa()
+        {
+            if (Editar == false)
+                try
+                {
+                    objetoCN.InsertarTasaCambio(txtMoneda.Text, txtTasaDeCambio.Text);
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Tasa - Ejecutada");
+                    MessageBox.Show("Se insertó correctamente");
+                    MostrarTasaCambio();
+                    limpiarFormTasaCambio();
+                }
+                catch (Exception ex)
+                {
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Tasa - Fallo");
+                    MessageBox.Show("No se pudo insertar: " + ex.Message);
+                }
+
+            if (Editar == true)
+                try
+                {
+                    objetoCN.EditarTasaCambio(txtMoneda.Text, txtTasaDeCambio.Text, TasaID);
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Tasa - Ejecutada");
+                    MessageBox.Show("Se editó correctamente");
+                    MostrarTasaCambio();
+                    limpiarFormTasaCambio();
+                    Editar = false;
+                }
+                catch (Exception ex)
+                {
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Tasa - Fallo");
+                    MessageBox.Show("No se pudo editar: " + ex.Message);
+                }
+        }
+
+        private void EditarTasa()
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                Editar = true;
+                txtMoneda.Text = dataGridView2.CurrentRow.Cells["MonedaNombre"].Value.ToString();
+                txtTasaDeCambio.Text = dataGridView2.CurrentRow.Cells["ValorTasa"].Value.ToString();
+                TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString();
+            }
+            else
+                MessageBox.Show("Seleccione una fila por favor");
+        }
+
+        private void EliminarTasa()
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString();
+                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Tasa - Ejecutada");
+                objetoCN.EliminarTasa(TasaID);
+                MessageBox.Show("Eliminado correctamente");
+                MostrarTasaCambio();
+            }
+            else
+                MessageBox.Show("Seleccione una fila por favor");
+        }
+
+        //Metodos para botones de la Tabla Usuario
+        private void GuardarUsuario()
+        {
+            if (Editar == false)
+                try
+                {
+                    UsuarioCN.InsertarUsuario(txtMoneda.Text, txtTasaDeCambio.Text);
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Usuario - Ejecutada");
+                    MessageBox.Show("Se insertó correctamente");
+                    MostrarUsuario();
+                    limpiarFormTasaCambio();
+                }
+                catch (Exception ex)
+                {
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Insertar Usuario - Fallo");
+                    MessageBox.Show("No se pudo insertar: " + ex.Message);
+                }
+
+            if (Editar == true)
+                try
+                {
+                    UsuarioCN.EditarUsuario(txtMoneda.Text, txtTasaDeCambio.Text, UsuarioID);
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Usuario - Ejecutada");
+                    MessageBox.Show("Se editó correctamente");
+                    MostrarUsuario();
+                    limpiarFormTasaCambio();
+                    Editar = false;
+                }
+                catch (Exception ex)
+                {
+                    auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Editar Usuario - Fallo");
+                    MessageBox.Show("No se pudo editar: " + ex.Message);
+                }
+        }
+
+        private void EditarUsuario()
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                Editar = true;
+                txtMoneda.Text = dataGridView2.CurrentRow.Cells["UsuarioNombre"].Value.ToString();
+                txtTasaDeCambio.Text = dataGridView2.CurrentRow.Cells["Rol"].Value.ToString();
+                UsuarioID = dataGridView2.CurrentRow.Cells["UsuarioID"].Value.ToString();
+            }
+            else
+                MessageBox.Show("Seleccione una fila por favor");
+        }
+
+        private void EliminarUsuario()
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                UsuarioID = dataGridView2.CurrentRow.Cells["UsuarioID"].Value.ToString();
+                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Eliminar Usuario - Ejecutada");
+                objetoCN.EliminarTasa(UsuarioID);
+                MessageBox.Show("Eliminado correctamente");
+                MostrarUsuario();
+            }
+            else
+                MessageBox.Show("Seleccione una fila por favor");
+        }
+
 
         public Form1()
         {
@@ -77,73 +219,40 @@ namespace ConversorDeMoneda
          
         }
 
+        private void MostrarAuditoria()
+        {
+            CN_Auditoria auditoria = new CN_Auditoria();
+            dataGridView2.DataSource = auditoria.MostrarAuditoria();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //INSERTAR TASA DE CAMBIO
-            if (Editar == false) 
-            try
+            switch (moduloActivo)
             {
-                objetoCN.InsertarTasaCambio(txtMoneda.Text, txtTasaDeCambio.Text);
-                MessageBox.Show("se inserto correctamente");
-                MostrarTasaCambio();
-                    limpiarFormTasaCambio();
-
+                case "Tasa": GuardarTasa(); break;
+                case "Usuario": GuardarUsuario(); break;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("no se pudo insertar los datos por: " + ex);
-            }
-            // EDITAR TASA DE CAMBIO
-            if (Editar == true)
-            {
-                try
-                {
-                    objetoCN.EditarTasaCambio(txtMoneda.Text, txtTasaDeCambio.Text, TasaID);
-                    MessageBox.Show("se edito correctamente");
-                    MostrarTasaCambio();
-                    limpiarFormTasaCambio();
-                    Editar = false;
 
-                }
 
-                catch (Exception ex)
-                {
-                    MessageBox.Show("no se pudo editar los datos por: " + ex);
-                }
-            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count > 0)
+            switch (moduloActivo)
             {
-                Editar = true;
-                txtMoneda.Text = dataGridView2.CurrentRow.Cells["MonedaNombre"].Value.ToString();
-                txtTasaDeCambio.Text = dataGridView2.CurrentRow.Cells["ValorTasa"].Value.ToString();
-                TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString();
+                case "Tasa": EditarTasa(); break;
+                case "Usuario": EditarUsuario(); break;
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
 
         }
-        private void limpiarFormTasaCambio()
-        {
-            txtMoneda.Clear();
-            txtTasaDeCambio.Clear();
-
-        }
-
+       
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count > 0)
+            switch (moduloActivo)
             {
-              TasaID = dataGridView2.CurrentRow.Cells["TasaID"].Value.ToString() ;
-              objetoCN.EliminarTasa(TasaID);
-                MessageBox.Show("Eliminado correctamente");
-                MostrarTasaCambio();
+                case "Tasa": EliminarTasa(); break;
+                case "Usuario": EliminarUsuario(); break;
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -199,12 +308,14 @@ namespace ConversorDeMoneda
         private void btnUSUARIO_Click(object sender, EventArgs e)
         {
             panelinicio.Visible = false;
+            moduloActivo = "Usuario";
             MostrarUsuario();
         }
 
         private void btnTASACAMBIO_Click(object sender, EventArgs e)
         {
             panelinicio.Visible = false;
+            moduloActivo = "Tasa";
             MostrarTasaCambio();
         }
 
@@ -212,6 +323,17 @@ namespace ConversorDeMoneda
         {
             panelinicio.Visible = false;
             MostrarConversion();
+        }
+
+        private void panelinicio_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAuditoria_Click(object sender, EventArgs e)
+        {
+            panelinicio.Visible = false;
+            MostrarAuditoria();
         }
     }
 }

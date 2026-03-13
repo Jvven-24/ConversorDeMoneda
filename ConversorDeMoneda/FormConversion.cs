@@ -14,6 +14,7 @@ namespace ConversorDeMoneda
 {
     public partial class FormConversion : Form
     {
+        CN_Auditoria auditoria = new CN_Auditoria();
         public FormConversion()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace ConversorDeMoneda
 
         private void FormConversion_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = Sesion.UsuarioNombre + " · " + Sesion.Rol;
+            lblUsuario.Text = Sesion.UsuarioNombre + " " +"ID:"+ Sesion.UsuarioID + Sesion.Rol;
 
             CN_TasaCambio objeto = new CN_TasaCambio();
             cmbMoneda.DataSource = objeto.MostrarTasa();
@@ -40,11 +41,20 @@ namespace ConversorDeMoneda
 
         private void btnConversion_Click(object sender, EventArgs e)
         {
-            CN_Conversion calculo = new CN_Conversion();
-            string resultado = calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
-            lblResultado.Text = resultado;
+            try
+            {
+                CN_Conversion calculo = new CN_Conversion();
+                string resultado = calculo.ObtenerConversion(txtMonto.Text, lblTasa.Text);
+                lblResultado.Text = resultado;
+                calculo.InsertarConversion(Sesion.UsuarioID.ToString(), cmbMoneda.SelectedValue.ToString(), txtMonto.Text, resultado, lblTasa.Text);
+                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Conversion - Ejecutada");
 
-
+            }
+            catch(Exception ex) 
+            {
+                auditoria.RegistrarAuditoria(Sesion.UsuarioID, "Conversion - Fallo");
+                MessageBox.Show("Conversion no realizada por : " + ex);
+            }
         }
 
         private void txtMonto_TextChanged(object sender, EventArgs e)

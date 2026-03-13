@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.txtMoneda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelinicio = new System.Windows.Forms.Panel();
+            this.btnAuditoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,23 +59,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(36)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(36)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(34)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(236)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.dataGridView2.Location = new System.Drawing.Point(221, 40);
             this.dataGridView2.Name = "dataGridView2";
@@ -152,6 +153,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(36)))));
+            this.panel1.Controls.Add(this.btnAuditoria);
             this.panel1.Controls.Add(this.btnREGISTRO);
             this.panel1.Controls.Add(this.btnTASACAMBIO);
             this.panel1.Controls.Add(this.btnUSUARIO);
@@ -173,9 +175,9 @@
             this.btnREGISTRO.FlatAppearance.BorderSize = 0;
             this.btnREGISTRO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREGISTRO.ForeColor = System.Drawing.Color.White;
-            this.btnREGISTRO.Location = new System.Drawing.Point(0, 403);
+            this.btnREGISTRO.Location = new System.Drawing.Point(0, 297);
             this.btnREGISTRO.Name = "btnREGISTRO";
-            this.btnREGISTRO.Size = new System.Drawing.Size(200, 134);
+            this.btnREGISTRO.Size = new System.Drawing.Size(200, 101);
             this.btnREGISTRO.TabIndex = 11;
             this.btnREGISTRO.Text = "REGISTRO";
             this.btnREGISTRO.UseVisualStyleBackColor = false;
@@ -190,9 +192,9 @@
             this.btnTASACAMBIO.FlatAppearance.BorderSize = 0;
             this.btnTASACAMBIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTASACAMBIO.ForeColor = System.Drawing.Color.White;
-            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 269);
+            this.btnTASACAMBIO.Location = new System.Drawing.Point(0, 201);
             this.btnTASACAMBIO.Name = "btnTASACAMBIO";
-            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 134);
+            this.btnTASACAMBIO.Size = new System.Drawing.Size(200, 96);
             this.btnTASACAMBIO.TabIndex = 10;
             this.btnTASACAMBIO.Text = "TASA DE CAMBIO";
             this.btnTASACAMBIO.UseVisualStyleBackColor = false;
@@ -207,9 +209,9 @@
             this.btnUSUARIO.FlatAppearance.BorderSize = 0;
             this.btnUSUARIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUSUARIO.ForeColor = System.Drawing.Color.White;
-            this.btnUSUARIO.Location = new System.Drawing.Point(0, 135);
+            this.btnUSUARIO.Location = new System.Drawing.Point(0, 96);
             this.btnUSUARIO.Name = "btnUSUARIO";
-            this.btnUSUARIO.Size = new System.Drawing.Size(200, 134);
+            this.btnUSUARIO.Size = new System.Drawing.Size(200, 105);
             this.btnUSUARIO.TabIndex = 9;
             this.btnUSUARIO.Text = "USUARIO";
             this.btnUSUARIO.UseVisualStyleBackColor = false;
@@ -226,7 +228,7 @@
             this.btnINICIO.ForeColor = System.Drawing.Color.White;
             this.btnINICIO.Location = new System.Drawing.Point(0, 0);
             this.btnINICIO.Name = "btnINICIO";
-            this.btnINICIO.Size = new System.Drawing.Size(200, 135);
+            this.btnINICIO.Size = new System.Drawing.Size(200, 96);
             this.btnINICIO.TabIndex = 0;
             this.btnINICIO.Text = "INICIO";
             this.btnINICIO.UseVisualStyleBackColor = false;
@@ -250,6 +252,21 @@
             this.panelinicio.Name = "panelinicio";
             this.panelinicio.Size = new System.Drawing.Size(961, 531);
             this.panelinicio.TabIndex = 9;
+            this.panelinicio.Paint += new System.Windows.Forms.PaintEventHandler(this.panelinicio_Paint);
+            // 
+            // btnAuditoria
+            // 
+            this.btnAuditoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(142)))), ((int)(((byte)(247)))));
+            this.btnAuditoria.FlatAppearance.BorderSize = 0;
+            this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuditoria.ForeColor = System.Drawing.Color.White;
+            this.btnAuditoria.Location = new System.Drawing.Point(0, 404);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(194, 115);
+            this.btnAuditoria.TabIndex = 12;
+            this.btnAuditoria.Text = "AUDITORIA";
+            this.btnAuditoria.UseVisualStyleBackColor = false;
+            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
             // 
             // Form1
             // 
@@ -293,6 +310,7 @@
         private System.Windows.Forms.Button btnUSUARIO;
         private System.Windows.Forms.Button btnINICIO;
         private System.Windows.Forms.Panel panelinicio;
+        private System.Windows.Forms.Button btnAuditoria;
     }
 }
 
