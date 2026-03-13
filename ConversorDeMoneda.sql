@@ -1,3 +1,4 @@
+
 Create database ConversorDeMoneda
 go
 use ConversorDeMoneda
@@ -135,6 +136,7 @@ TasaID int Foreign key references TasaCambio(TasaID),
 MontoOrigen decimal(18,4),
 MontoConvertido decimal(18,4),
 FechaConversion datetime DEFAULT GETDATE()
+ValorTasaUsada decimal(18,4)
 )
 
 drop table Conversion
@@ -152,11 +154,35 @@ create proc InsertarConversion
 @UsuarioID int,
 @TasaID int,
 @MontoOrigen decimal(18,4),
-@MontoConvertido decimal(18,4)
+@MontoConvertido decimal(18,4),
+@ValorTasaUsada decimal(18,4)
 as
-INSERT into Conversion (UsuarioID, TasaID, MontoOrigen, MontoConvertido)
-values (@UsuarioID, @TasaID, @MontoOrigen, @MontoConvertido)
+INSERT into Conversion (UsuarioID, TasaID, MontoOrigen, MontoConvertido, ValorTasaUsada)
+values (@UsuarioID, @TasaID, @MontoOrigen, @MontoConvertido, @ValorTasaUsada)
 go
 
+///Tabla Auditoria
+create table Auditoria
+(
+AuditoriaID int identity(1,1) primary key,
+UsuarioID int Foreign key references Usuario(UsuarioID),
+Accion varchar(50),
+FechaAccion datetime DEFAULT GETDATE()
+)
 
+///Procedimiento para mostrar auditoria
+Create proc MostrarAuditoria
+as
+select * from Auditoria
+go
 
+exec MostrarAuditoria
+
+///Procedimiento para insertar auditoria
+create proc InsertarAuditoria
+@UsuarioID int,
+@Accion varchar(50)
+as
+INSERT into Auditoria (UsuarioID, Accion)
+values (@UsuarioID, @Accion)
+go
